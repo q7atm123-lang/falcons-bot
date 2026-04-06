@@ -7,7 +7,9 @@ import random
 
 TOKEN = os.getenv("BOT_TOKEN")
 bot = telebot.TeleBot(TOKEN)
-
+@bot.message_handler(func=lambda message: True)
+def get_id(message):
+    bot.reply_to(message, str(message.chat.id))
 messages = [
     "🦅 Falcons جاهز للمضاربة",
     "🚀 تم تشغيل البوت بنجاح",
